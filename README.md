@@ -3,10 +3,9 @@ This repository accompanies the guide at https://fusionauth.io/docs/lifecycle/ex
 ## How to run
 
 - Download and unzip, or git clone, this repository.
+- Run FusionAuth locally on port 9011.
+- Open a terminal and run the commands below
 - ```sh
-  docker compose up
-
-  # in a new terminal
   cd app
   npm install
   npm run start
