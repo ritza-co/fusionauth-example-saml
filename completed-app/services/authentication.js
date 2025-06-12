@@ -3,8 +3,10 @@ const session = require("express-session");
 const passport = require("passport");
 const jwt_decode = require("jwt-decode");
 const OauthStrategy = require("passport-oauth2").Strategy;
+//tag::1[]
 const SamlStrategy = require("@node-saml/passport-saml").Strategy;
 const fs = require('fs');
+//end::2[]
 
 function setupPassport(app) {
   app.use(
@@ -27,7 +29,9 @@ function setupPassport(app) {
   });
 
   // setupOauth(passport);
+  //tag::2[]
   setupSaml(passport);
+  //end::2[]
 }
 
 function setupOauth(passport) {
@@ -58,6 +62,7 @@ function setupOauth(passport) {
 
 module.exports = setupPassport;
 
+//tag::3[]
 function setupSaml(passport) {
   const samlOptions = {
     path: "/saml/callback",
@@ -77,3 +82,4 @@ function setupSaml(passport) {
     )
   );
 }
+//end::3[]
