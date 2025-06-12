@@ -64,10 +64,9 @@ function setupSaml(passport) {
     callbackUrl: "http://localhost:3000/saml/callback",
     entryPoint: process.env.SAML_URL,
     issuer: "passport-saml",
-    cert: fs.readFileSync('cert/cert.pem', 'utf8'),
     idpCert: fs.readFileSync('cert/cert.pem', 'utf8'),
-    wantAuthnResponseSigned: false,
-    wantAssertionsSigned: true
+    wantAuthnResponseSigned: true,
+    wantAssertionsSigned: false
   };
   passport.use(
     "saml",
