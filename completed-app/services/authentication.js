@@ -29,9 +29,9 @@ function setupPassport(app) {
   });
 
   // setupOauth(passport);
-  //tag::2[]
+  //tag::b[]
   setupSaml(passport);
-  //end::2[]
+  //end::b[]
 }
 
 function setupOauth(passport) {
@@ -62,7 +62,7 @@ function setupOauth(passport) {
 
 module.exports = setupPassport;
 
-//tag::3[]
+//tag::c[]
 function setupSaml(passport) {
   const samlOptions = {
     path: "/saml/callback",
@@ -82,4 +82,4 @@ function setupSaml(passport) {
     )
   );
 }
-//end::3[]
+//end::c[]
