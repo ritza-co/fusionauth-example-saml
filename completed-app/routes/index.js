@@ -14,8 +14,22 @@ router.get("/", function (req, res, next) {
   res.render("index", {});
 });
 
-// router.get("/login", passport.authenticate("oauth2"));
+
+//tag::a[]
+// router.get("/login", passport.authenticate("oauth2"));   <-- REPLACE THIS LINE
 router.get("/login", passport.authenticate("saml", { failureRedirect: "/", failureFlash: true }), function (req, res) {res.redirect("/");});
+
+router.post("/saml/callback",
+  bodyParser.urlencoded({ extended: false }),
+  passport.authenticate("saml", {
+    failureRedirect: "/",
+    failureFlash: true,
+  }),
+  function (req, res, next) {
+    res.redirect("/account");
+  }
+);
+//end::a[]
 
 router.get(
   "/auth/callback",
@@ -34,16 +48,5 @@ router.get("/logout", function (req, res, next) {
 router.get("/account", checkAuthenticated, function (req, res, next) {
   res.render("account", { email: req.user });
 });
-
-router.post("/saml/callback",
-  bodyParser.urlencoded({ extended: false }),
-  passport.authenticate("saml", {
-    failureRedirect: "/",
-    failureFlash: true,
-  }),
-  function (req, res, next) {
-    res.redirect("/account");
-  }
-);
 
 module.exports = router;
