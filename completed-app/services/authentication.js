@@ -3,10 +3,10 @@ const session = require("express-session");
 const passport = require("passport");
 const jwt_decode = require("jwt-decode");
 const OauthStrategy = require("passport-oauth2").Strategy;
-//tag::1[]
+//tag::a[]
 const SamlStrategy = require("@node-saml/passport-saml").Strategy;
 const fs = require('fs');
-//end::2[]
+//end::a[]
 
 function setupPassport(app) {
   app.use(
