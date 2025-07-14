@@ -3,7 +3,6 @@ const session = require("express-session");
 const passport = require("passport");
 const jwt_decode = require("jwt-decode");
 const OauthStrategy = require("passport-oauth2").Strategy;
-
 //tag::a[]
 const SamlStrategy = require("@node-saml/passport-saml").Strategy;
 const fs = require('fs');
