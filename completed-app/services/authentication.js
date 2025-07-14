@@ -4,9 +4,8 @@ const passport = require("passport");
 const jwt_decode = require("jwt-decode");
 const OauthStrategy = require("passport-oauth2").Strategy;
 //tag::a[]
-
-constF SamlStrategy = require("@node-saml/passport-saml").Strategy;
-const fs = require('fs');
+  const SamlStrategy = require("@node-saml/passport-saml").Strategy;
+  const fs = require('fs');
 //end::a[]
 
 function setupPassport(app) {
